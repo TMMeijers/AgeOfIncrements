@@ -1,8 +1,11 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    {{ food }}
+    {{ food }} food
     <button @click="increment('food')">CLICK</button>
+    <br />
+
+    {{ cave.amount }} Caves
+    <button @click="build('cave')">BUY</button>
   </div>
 </template>
 
@@ -11,6 +14,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'home',
+
   components: {
   },
 
@@ -21,6 +25,11 @@ export default {
   computed: {
     ...mapGetters('resources', [
       'food'
+    ]),
+
+    ...mapGetters('buildings', [
+      'cave',
+      'buildingCost'
     ])
   },
 
@@ -34,6 +43,13 @@ export default {
         case 'food':
           this.incrementFood({ amount })
           break
+      }
+    },
+
+    build (type, amount = 1) {
+      switch (type) {
+        case 'cave':
+          break;
       }
     }
   }

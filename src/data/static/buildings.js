@@ -1,21 +1,20 @@
 export default {
-    cave: {
-        id: "",
-        type: "housing",
-        name: "",
-        description: "",
-        requirements: "",
-        modifiers: {
-          resources: {
-              food: {
-                  multiplier: 1.1
-              }
-          },
-          buildings: {
-              cave: {
-                  costMod: 0.99
-              }
-          }
-        }
+  cave: {
+    id: 'cave',
+    type: 'housing',
+    name: 'Cave',
+    description: 'A moisty hole',
+    requirements: {},
+    cost: {
+      factor: 1.12,
+      resources: {
+        food: 10
+      }
+    },
+    modifiers: {
+      click: {
+        food: 1
+      }
     }
+  }
 }
