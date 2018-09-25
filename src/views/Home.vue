@@ -1,18 +1,41 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{ food }}
+    <button @click="increment('food')">CLICK</button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+  },
+
+  created () {
+
+  },
+
+  computed: {
+    ...mapGetters('resources', [
+      'food'
+    ])
+  },
+
+  methods: {
+    ...mapActions('resources', [
+      'incrementFood'
+    ]),
+
+    increment (type, amount = 1) {
+      switch (type) {
+        case 'food':
+          this.incrementFood({ amount })
+          break
+      }
+    }
   }
 }
 </script>
