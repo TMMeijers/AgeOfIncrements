@@ -23,6 +23,12 @@ export default {
     canAfford: (state, getters) => cost => utils.canAfford(cost, getters.resourcesDict)
   },
   actions: {
+    // "earn" actions to call from main loop that increments all stuff?
+    // Should have "spend" action that sets new amounts based on cost opbject
+
+    /**
+     * Click handler, maybe give a better name. Need sleep now :p
+     */
     increment ({ getters, commit }, { type }) {
       const resource = getters[type]
       // TODO: Get modifiers from actual things

@@ -11,6 +11,8 @@
       <!-- TODO style resources -->
       <p>{{ building.cost.resources }}</p>
       <p>{{ building.description }}</p>
+      <!-- TODO only enable when affordable (but cannot check every tick, implement in main loop and
+        set flags)-->
       <button @click="onBuild(building.id)">BUY</button>
     </div>
   </div>

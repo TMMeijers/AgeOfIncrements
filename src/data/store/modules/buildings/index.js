@@ -34,6 +34,7 @@ export default {
 
   actions: {
     build ({ getters, commit }, { type, amount = 1 }) {
+      // Should do final check if affordable and then dispatch 'resources/spend'
       const building = getters[type]
       // In entity specific actions we can trigger achievements etc.
       const newAmount = building.amount + amount
