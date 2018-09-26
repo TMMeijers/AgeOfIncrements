@@ -22,20 +22,26 @@ export default {
     return every(costs, (res, cost) => resources[res] >= cost)
   },
 
-  filterEntitiesDict (all, kind) {
-    return reduce(all, (acc, entity) => {
-      if (entity.kind === kind) {
-        acc[entity.id] = entity
+  filterEntities (entities, field, value) {
+    return reduce(entities, (acc, entity) => {
+      if (entity[field] === value) {
+        acc.push(entity)
       }
       return acc
-    })
+    }, [])
   },
 
-  getEntitiesForAge (entities, age) {
-    return reduce(entities, (acc, entity) => {
-      if (entity.age === age) {
-        acc[entity.id] = entity
-      }
+  getEntitiesByAge (entities, age) {
+    return this.filterEntities(entities, 'age', age)
+  },
+
+  getEntitiesByKind (entities, kind) {
+    return this.filterEntities(entities, 'kind', kind)
+  },
+
+  listToDict (list, field = 'id') {
+    return reduce(list, (acc, entity) => {
+      acc[entity[field]] = entity
       return acc
     }, {})
   }

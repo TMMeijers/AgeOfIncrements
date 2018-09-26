@@ -1,5 +1,3 @@
-import map from 'lodash.map'
-
 import buildings from '../../../static/buildings'
 import utils from '../../../../game/common/utils'
 
@@ -28,9 +26,10 @@ export default {
     bonfire: state => state.bonfire,
     buildingCost: state => buildingName => utils.getCosts(state[buildingName]),
 
-    buildingsDict: state => utils.filterEntitiesDict(state, 'buildings'),
-    buildings: (state, getters) => map(getters.buildingsDict, b => b),
-    buildingsForAge: (state, getters) => age => utils.getEntitiesForAge(getters.buildings, age)
+    buildings: state => utils.getEntitiesByKind(state, 'buildings'),
+    buildingsDict: (state, getters) => utils.listToDict(getters.buildings),
+    buildingsForAge: (state, getters) => age => utils.getEntitiesByAge(getters.buildings, age),
+    buildingsDictForAge: (state, getters) => age => utils.listToDict(getters.buildingsForAge(age))
   },
 
   actions: {
@@ -43,7 +42,7 @@ export default {
   },
   mutations: {
     setBuilding (state, { type, amount }) {
-      state[type] = amount
+      state[type].amount = amount
     }
   }
 }

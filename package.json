@@ -11,7 +11,6 @@
   "dependencies": {
     "lodash.every": "^4.6.0",
     "lodash.filter": "^4.6.0",
-    "lodash.map": "^4.6.0",
     "lodash.reduce": "^4.6.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",

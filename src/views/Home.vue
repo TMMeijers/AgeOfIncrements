@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     {{ food.amount }} food
-    <button @click="onResourceClick('food')">CLICK</button>
+    <button @click="onIncrement('food')">CLICK</button>
     <br />
 
     <buildings-panel />
@@ -40,15 +40,8 @@ export default {
       'increment'
     ]),
 
-    onResourceClick (type, amount = 1) {
-      this.increment({ type, amount })
-    },
-
-    build (type, amount = 1) {
-      switch (type) {
-        case 'cave':
-          break
-      }
+    onIncrement (type) {
+      this.increment({ type })
     }
   }
 }

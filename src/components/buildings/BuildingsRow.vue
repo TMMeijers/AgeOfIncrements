@@ -2,7 +2,7 @@
   <div class="component">
     <div
       class="building"
-      v-for="building in buildings"
+      v-for="building in buildingsForAge(age)"
       v-if="TODO || building.unlocked"
       :key="building.id">
 
@@ -18,7 +18,6 @@
 
 <script>
 import type from 'vue-types'
-import map from 'lodash.map'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -38,11 +37,7 @@ export default {
     ...mapGetters('buildings', [
       'buildingsForAge',
       'buildingCost'
-    ]),
-
-    buildings () {
-      return map(this.buildingsForAge(this.age), building => building)
-    }
+    ])
   },
 
   methods: {
