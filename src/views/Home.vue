@@ -1,21 +1,23 @@
 <template>
   <div class="home">
-    {{ food }} food
-    <button @click="increment('food')">CLICK</button>
+    {{ food.amount }} food
+    <button @click="onResourceClick('food')">CLICK</button>
     <br />
 
-    {{ cave.amount }} Caves
-    <button @click="build('cave')">BUY</button>
+    <buildings-panel />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
+import BuildingsPanel from '../components/buildings/BuildingsPanel'
+
 export default {
   name: 'home',
 
   components: {
+    BuildingsPanel
   },
 
   created () {
@@ -35,21 +37,17 @@ export default {
 
   methods: {
     ...mapActions('resources', [
-      'incrementFood'
+      'increment'
     ]),
 
-    increment (type, amount = 1) {
-      switch (type) {
-        case 'food':
-          this.incrementFood({ amount })
-          break
-      }
+    onResourceClick (type, amount = 1) {
+      this.increment({ type, amount })
     },
 
     build (type, amount = 1) {
       switch (type) {
         case 'cave':
-          break;
+          break
       }
     }
   }

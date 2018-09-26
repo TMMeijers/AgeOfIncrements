@@ -1,10 +1,9 @@
-import store from '../store/'
+import store from '../data/store/'
 
 export default {
   init () {
     // Load data
     return setInterval(() => {
-      store.dispatch('resources/incrementFood', { amount: 1 })
     }, 1000)
   }
 }
