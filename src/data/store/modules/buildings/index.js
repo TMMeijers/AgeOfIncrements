@@ -26,7 +26,7 @@ export default {
     bonfire: state => state.bonfire,
     buildingCost: state => buildingName => utils.getCosts(state[buildingName]),
 
-    buildings: state => utils.getEntitiesByKind(state, 'buildings'),
+    buildings: state => utils.getEntitiesByKind(state, 'building'),
     buildingsDict: (state, getters) => utils.listToDict(getters.buildings),
     buildingsForAge: (state, getters) => age => utils.getEntitiesByAge(getters.buildings, age),
     buildingsDictForAge: (state, getters) => age => utils.listToDict(getters.buildingsForAge(age))

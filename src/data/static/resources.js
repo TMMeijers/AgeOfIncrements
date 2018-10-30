@@ -1,6 +1,6 @@
 import reduce from 'lodash.reduce'
 
-const buildings = {
+const resources = {
   cave: {
     age: 'prehistoric',
     type: 'housing',
@@ -65,9 +65,9 @@ const buildings = {
 }
 
 // Extend each building with defaults before exporting
-export default reduce(buildings, (acc, building, id) => {
+export default reduce(resources, (acc, building, id) => {
   acc[id] = {
-    kind: 'building',
+    kind: 'resource',
     id,
     ...building
   }

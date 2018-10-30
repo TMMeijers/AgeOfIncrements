@@ -7,7 +7,7 @@ export default {
   state: {
     food: {
       id: 'food',
-      kind: 'resources',
+      kind: 'resource',
       amount: 0,
       base: 1
     }
@@ -15,7 +15,7 @@ export default {
   getters: {
     food: state => state.food,
 
-    resources: state => utils.getEntitiesByKind(state, 'resources'),
+    resources: state => utils.getEntitiesByKind(state, 'resource'),
     resourcesDict: (state, getters) => utils.listToDict(getters.resources),
     resourcesForAge: (state, getters) => age => utils.getEntitiesByKind(getters.resources, age),
     resourcesDictForAge: (state, getters) => age => utils.listToDict(getters.resourcesForAge),

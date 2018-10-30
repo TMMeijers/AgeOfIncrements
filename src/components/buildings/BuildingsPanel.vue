@@ -19,7 +19,7 @@ export default {
   data () {
     return {
       // Should be ported to a module later
-      ages: ['prehistoric']
+      ages: ['prehistoric', 'earlyFarm']
     }
   }
 }
