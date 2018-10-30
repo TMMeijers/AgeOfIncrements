@@ -3,8 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './data/store/'
 
-import game from './game/main'
-
 Vue.config.productionTip = false
 
 new Vue({
@@ -13,4 +11,4 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-store.dispatch('game/setMainGameHandle', { mainGameHandle: game.init() })
+store.dispatch('game/initialize')
